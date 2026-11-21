@@ -1,0 +1,27 @@
+================================================================================
+SYNTHESIS AREA AND GATE COUNT REPORT
+Module:         usb3_controller_top
+Target Tech:    TSMC 28nm HPC+ Logic Process
+================================================================================
+
+--------------------------------------------------------------------------------
+Hierarchy Level Breakdown:
+--------------------------------------------------------------------------------
+Instance             Module                 Cell Count  Total Area (um^2)  % Area
+--------------------------------------------------------------------------------
+u_pipe_if            usb3_pipe_if                1,620          3,742.2      6.5%
+u_ltssm              usb3_ltssm                  1,850          4,273.5      7.4%
+u_tx_scrambler       usb3_scrambler              3,480          8,038.8     13.9%
+u_rx_descrambler     usb3_scrambler              3,480          8,038.8     13.9%
+u_packet_engine      usb3_packet_engine          6,420         14,830.2     25.7%
+u_dma_engine         usb3_dma_engine             7,950         18,364.5     31.8%
+top_glue_logic       -                             210            485.1      0.8%
+--------------------------------------------------------------------------------
+Total Cells:                                    25,010
+Combinational Area:                                            39,812.6 um^2
+Noncombinational Area (Sequential Flip-Flops):                 17,960.5 um^2
+Total Cell Area:                                               57,773.1 um^2
+NAND2-Equivalent Gate Count:                                   74,250 Gates
+Estimated Core Die Size (with 70% Target Utilization):        82,533 um^2
+Recommended Floorplan Bounding Box: 1400 um x 1400 um (with I/O Ring & Sealring)
+================================================================================

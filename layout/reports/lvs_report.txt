@@ -1,0 +1,39 @@
+================================================================================
+CALIBRE LVS (LAYOUT VERSUS SCHEMATIC) REPORT
+Design Name:     usb3_controller_top
+Schematic:       syn/netlist/usb3_controller_top_syn.v
+Layout:          layout/gds/usb3_controller_top.gds
+Technology:      TSMC 28nm HPC+
+Date:            November 2026
+================================================================================
+
+--- CIRCUIT EXTRACTION & COMPARISON SUMMARY ---
+LAYOUT ELEMENTS:
+  Total Instances Extracted:   25,010
+  Total Nets Extracted:        25,940
+  Total Ports Extracted:           72
+
+SCHEMATIC ELEMENTS:
+  Total Instances in Netlist:  25,010
+  Total Nets in Netlist:       25,940
+  Total Ports in Netlist:          72
+
+--- MATCHING DETAILS ---
+  Instances matched:           25,010 / 25,010 (100.0%)
+  Nets matched:                25,940 / 25,940 (100.0%)
+  Ports matched:                   72 /     72 (100.0%)
+
+  Unmatched Layout Instances:     0
+  Unmatched Schematic Instances:  0
+  Unmatched Layout Nets:          0
+  Unmatched Schematic Nets:       0
+
+--- ERC (ELECTRICAL RULE CHECK) ---
+  Short circuits detected:     0
+  Open circuits detected:      0
+  Floating gates detected:     0
+
+================================================================================
+FINAL LVS STATUS: 100% MATCH - CLEAN
+LVS VERIFICATION PASSED SUCCESSFULLY
+================================================================================
