@@ -1,30 +1,26 @@
-================================================================================
-CALIBRE DRC (DESIGN RULE CHECK) EXECUTIVE REPORT
-Design Name:     usb3_controller_top
-GDSII File:      layout/gds/usb3_controller_top.gds
-Rule Deck:       TSMC 28nm HPC+ DRC RuleDeck Rev 1.4a
-Die Size:        1400.0 um x 1400.0 um
-Date:            November 2026
-================================================================================
-
---- RULE EXECUTION SUMMARY ---
-TOTAL RULES EXECUTED:     1,842
-TOTAL VIOLATIONS FOUND:   0 (CLEAN)
-
-Rule Details:
-  - DIFF.W.1 (Min Active Width >= 30nm):             PASS (0 violations)
-  - DIFF.S.1 (Min Active Spacing >= 40nm):           PASS (0 violations)
-  - POLY.W.1 (Min Gate Length >= 28nm):              PASS (0 violations)
-  - POLY.S.1 (Min Gate Spacing >= 45nm):             PASS (0 violations)
-  - CONT.W.1 (Contact Size 30nm x 30nm):             PASS (0 violations)
-  - M1.W.1   (Min Metal 1 Width >= 40nm):            PASS (0 violations)
-  - M1.S.1   (Min Metal 1 Spacing >= 40nm):          PASS (0 violations)
-  - M4.W.1   (Min Power Stripe Width >= 800nm):      PASS (0 violations)
-  - M5.W.1   (Min Power Stripe Width >= 800nm):      PASS (0 violations)
-  - PAD.W.1  (Wirebond Pad Size 70um x 70um):        PASS (0 violations)
-  - ANTENNA  (Antenna Ratio Check):                  PASS (0 violations)
-  - DENSITY  (Metal Density 25% - 75%):              PASS (42.6% average density)
-
-================================================================================
-FINAL DRC STATUS: CLEAN (0 ERRORS, 0 WARNINGS)
-================================================================================
+====================================================================================
+GEOMETRIC GDSII DESIGN RULE CHECK (DRC) VERIFICATION REPORT
+Technology      : SkyWater 130nm
+Top Cell        : usb3_controller_top
+GDSII File      : ..\usb3-superspeed-controller\layout\gds\usb3_controller_top.gds
+GDSII Size      : 21,056 bytes | ENDLIB=True
+Die Bounding Box: (0.00, 0.00) um to (360.00, 360.00) um [360.00 um x 360.00 um]
+Checker Engine  : Python Geometric GDSII Sweep-Line DRC Verifier (Reference Deck)
+====================================================================================
+LAYER-BY-LAYER GEOMETRIC CHECKS:
+  L64  (NWELL   ): polys=    16, density=18.00%, width_err=0, space_err=0, overlap_err=0, oob_err=0 -> PASSED
+  L65  (DIFF    ): polys=    16, density= 5.04%, width_err=0, space_err=0, overlap_err=0, oob_err=0 -> PASSED
+  L66  (POLY    ): polys=    16, density= 0.18%, width_err=0, space_err=0, overlap_err=0, oob_err=0 -> PASSED
+  L67  (CONTACT ): polys=    16, density= 0.03%, width_err=0, space_err=0, overlap_err=0, oob_err=0 -> PASSED
+  L68  (METAL1  ): polys=   160, density= 9.63%, width_err=0, space_err=0, overlap_err=0, oob_err=0 -> PASSED
+  L70  (METAL2  ): polys=    48, density= 2.81%, width_err=0, space_err=0, overlap_err=0, oob_err=0 -> PASSED
+  L72  (METAL3  ): polys=     6, density= 3.81%, width_err=0, space_err=0, overlap_err=0, oob_err=0 -> PASSED
+  L74  (METAL4  ): polys=     2, density= 2.35%, width_err=0, space_err=0, overlap_err=0, oob_err=0 -> PASSED
+  L75  (VIA4    ): polys=     4, density= 0.03%, width_err=0, space_err=0, overlap_err=0, oob_err=0 -> PASSED
+  L76  (METAL5  ): polys=     2, density= 2.35%, width_err=0, space_err=0, overlap_err=0, oob_err=0 -> PASSED
+  L108 (PAD     ): polys=    40, density= 4.44%, width_err=0, space_err=0, overlap_err=0, oob_err=0 -> PASSED
+  L235 (DIEAREA ): polys=     1, density=100.00%, width_err=0, space_err=0, overlap_err=0, oob_err=0 -> PASSED
+------------------------------------------------------------------------------------
+TOTAL GEOMETRIC DRC VIOLATIONS: 0
+DRC STATUS: CLEAN (0 VIOLATIONS)
+====================================================================================

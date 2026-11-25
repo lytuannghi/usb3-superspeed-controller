@@ -2,7 +2,7 @@
 
 A production-grade, synthesizable silicon intellectual property (IP) core implementing the SuperSpeed (5.0 Gbps Gen 1) physical layer, link layer, and protocol layer conforming to the Universal Serial Bus 3.0 Specification. Features an Intel PIPE 3.0 PHY interface adapter, a 13-state Link Training and Status State Machine (LTSSM), dual parallel scramblers, CRC-5/16 validation, and an integrated Scatter-Gather AXI4 Master DMA engine.
 
-Synthesized and validated for the TSMC 28nm HPC+ CMOS logic process at a target operating frequency of 250.0 MHz.
+Designed and constrained in Verilog-2005 with SkyWater 130nm SDC & GDSII logic process at a target operating frequency of 250.0 MHz.
 
 ---
 
@@ -82,17 +82,12 @@ Synthesized and validated for the TSMC 28nm HPC+ CMOS logic process at a target 
 
 | Parameter | Specification | Notes |
 | :--- | :--- | :--- |
-| Technology Node | TSMC 28nm HPC+ CMOS | 1P9M Standard Logic Stack |
-| Nominal Supply Voltage | 0.90 V | Typical Core Supply |
-| Operating Frequency | 250.0 MHz | Worst-case SS corner (0.9V, 125 C) |
-| Max Attainable Frequency | 327.7 MHz | Calculated from STA slack |
-| Total Gate Count | 74,250 Gates | Two-input NAND equivalent |
-| Total Cell Area | 57,773 um^2 | Standard cell footprint |
-| Core Die Area | 1400 um x 1400 um | Includes I/O Padring & ESD Sealring |
-| Setup Timing Slack | +0.949 ns | Fully closed without timing violations |
-| Hold Timing Slack | +0.028 ns | No min-delay race conditions |
-| DRC Status | 0 Violations | Clean against 28nm rule decks |
-| LVS Status | 100% Match | Netlist to layout correspondence |
+| Target Technology | SkyWater 130nm HD | Open-source PDK geometry (5-metal layer stack) |
+| Operating Frequency | 250.0 MHz | SDC clock period constraint (`syn/`) |
+| RTL Structural Metrics | Verified via `syn/analyze_rtl.py` | See `syn/reports/rtl_synthesis_check.txt` |
+| Core Die Area | 360 um x 360 um | Includes I/O Padring & ESD Sealring |
+| DRC Status | 0 Violations | 0 violations via `verify_gds_drc.py` (Sky130 rules) |
+| LVS / Port Check | Structural Match | GDSII & RTL ports audited (`layout/reports/lvs_report.txt`); external Magic/Netgen needed for SPICE LVS |
 
 ---
 
@@ -183,7 +178,7 @@ To rebuild the physical layout:
 python layout/scripts/build_layout_usb3.py
 ```
 
-Output layout file is placed in `layout/gds/usb3_controller_top.gds` ($1400\,\mu\text{m} \times 1400\,\mu\text{m}$).
+Output layout file is placed in `layout/gds/usb3_controller_top.gds` (360 um x 360 um).
 
 ---
 

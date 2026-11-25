@@ -1,0 +1,25 @@
+================================================================================
+RTL SYNTHESIS READINESS & CONSTRAINT REPORT: usb3-superspeed-controller
+Method : Static Verilog/SV Structural Parser + SDC Constraint Audit
+Note   : Foundry Gate-Level Netlist & STA require PDK Liberty (.lib) + Synopsys/OpenROAD
+================================================================================
+RTL Source Files Inspected : 7
+Code Lines (Non-Comment)   : 1074
+Sequential Blocks          : 10
+Combinational Blocks       : 1
+Declared reg/logic Signals : 89
+
+MODULE BREAKDOWN:
+  rtl\dma\usb3_dma_engine.v                     | modules=usb3_dma_engine              | loc= 182 | seq= 1 | comb= 0
+  rtl\link\usb3_crc.v                           | modules=usb3_crc                     | loc=  59 | seq= 1 | comb= 0
+  rtl\link\usb3_scrambler.v                     | modules=usb3_scrambler               | loc=  91 | seq= 1 | comb= 0
+  rtl\phy\usb3_ltssm.v                          | modules=usb3_ltssm                   | loc= 186 | seq= 1 | comb= 0
+  rtl\phy\usb3_pipe_if.v                        | modules=usb3_pipe_if                 | loc= 110 | seq= 4 | comb= 0
+  rtl\proto\usb3_packet_engine.v                | modules=usb3_packet_engine           | loc= 197 | seq= 2 | comb= 0
+  rtl\usb3_controller_top.v                     | modules=usb3_controller_top          | loc= 249 | seq= 0 | comb= 1
+
+SDC CLOCK CONSTRAINTS:
+  usb3_timing.sdc: port=clk | period=4.00 ns | target=250.00 MHz
+
+ARITHMETIC DIVISION/MODULO CHECK: CLEAN (0 combinational / or % operators)
+================================================================================

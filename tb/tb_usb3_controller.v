@@ -301,16 +301,27 @@ module tb_usb3_controller;
 
         // TEST 7: Transaction Packet (TP ACK) Transmission
         $display("\n[TEST 7] Transaction Packet (TP ACK) Generation...");
+        @(negedge clk);
         tx_tp_req = 1;
         tx_tp_subtype = 4'h1; // ACK
         tx_dev_addr = 7'd12;
         tx_ep_num = 4'd2;
         tx_seq_num = 5'd7;
-        #4;
+        @(negedge clk);
         tx_tp_req = 0;
-        #30;
-        $display("-> TEST 7 PASSED: TP ACK packet framed with SHP delimiters and emitted.");
-        pass_count = pass_count + 1;
+        timeout_loop = 0;
+        while (pipe_tx_datak !== 4'b1110 && timeout_loop < 20) begin
+            @(posedge clk);
+            timeout_loop = timeout_loop + 1;
+        end
+        if (pipe_tx_datak === 4'b1110) begin
+            $display("-> TEST 7 PASSED: TP ACK packet framed with SHP K-delimiters (datak=4'b%04b) and emitted on PIPE TX.", pipe_tx_datak);
+            pass_count = pass_count + 1;
+        end else begin
+            $display("-> TEST 7 FAILED: TP ACK SHP K-delimiter never observed on PIPE TX (link_ready=%0b, datak=4'b%04b).", link_ready, pipe_tx_datak);
+            fail_count = fail_count + 1;
+        end
+        #20;
 
         // TEST 8: Parallel Scrambler Polynomial Verification
         $display("\n[TEST 8] Scrambler LFSR Polynomial Verification...");
@@ -339,8 +350,8 @@ module tb_usb3_controller;
             timeout_loop = timeout_loop + 1;
         end
 
-        if (dma_done || timeout_loop < 200) begin
-            $display("-> TEST 9 PASSED: AXI4 16-byte burst DMA transfer completed.");
+        if (dma_done) begin
+            $display("-> TEST 9 PASSED: AXI4 16-byte burst DMA transfer completed in %0d cycles.", timeout_loop);
             pass_count = pass_count + 1;
         end else begin
             $display("-> TEST 9 FAILED: DMA burst failed to complete within timeout.");

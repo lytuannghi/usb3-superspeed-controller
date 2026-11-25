@@ -2,7 +2,7 @@
 # File: usb3_timing.sdc
 # Module: usb3_controller_top
 # Target Frequency: 250.0 MHz (4.000 ns Period)
-# Technology: TSMC 28nm HPC+ Standard Cell Library (typical 0.9V, 25C)
+# Technology: SkyWater 130nm HD Standard Cell Library (typical 1.80V, 25C)
 ###############################################################################
 
 # Primary Core Clock Definition
